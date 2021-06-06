@@ -1,4 +1,4 @@
-﻿namespace System.CustomModels
+﻿namespace System.CustomModels.Filters
 {
     public class PatternString
     {
