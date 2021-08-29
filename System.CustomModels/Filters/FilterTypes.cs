@@ -13,4 +13,18 @@
         Gender,
         Film
     }
+
+    public enum FilmFilterType
+    {
+        Id,
+        Name,
+        Year,
+        Genre,
+        Company,
+        ReleaseDate,
+        Cast,
+        Writer,
+        Director,
+        Country
+    }
 }
