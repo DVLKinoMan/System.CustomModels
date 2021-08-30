@@ -50,5 +50,13 @@ namespace System.CustomModels
 
             return age;
         }
+
+        public static byte? GetByte(this Gender gender) => gender switch
+        {
+            Gender.Unknown => 0,
+            Gender.Male => 1,
+            Gender.Female => 2,
+            _ => null
+        };
     }
 }
