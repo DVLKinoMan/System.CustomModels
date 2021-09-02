@@ -58,5 +58,54 @@ namespace System.CustomModels
             Gender.Female => 2,
             _ => null
         };
+
+        /// <summary>
+        /// Returns string After prevoiusString from text
+        /// </summary>
+        /// <param name="previousString"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string GetAfterString(this string text, string previousString) =>
+            text.IndexOf(previousString) switch
+            {
+                var index and >= 0 => text.Substring(index + previousString.Length),
+                _ => string.Empty
+            };
+
+        /// <summary>
+        /// Returns string Before nextString from text
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="nextString"></param>
+        /// <returns></returns>
+        public static string GetBeforeString(this string text, string nextString) =>
+            text.IndexOf(nextString) switch
+            {
+                var index and >= 0 => text.Substring(0, index),
+                _ => string.Empty
+            };
+
+        /// <summary>
+        /// Returns string Before nextString and After previousString
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="previousString"></param>
+        /// <param name="nextString"></param>
+        /// <returns></returns>
+        public static string GetBetweenString(this string text, string previousString, string nextString)
+        {
+            int startIndex = text.IndexOf(previousString);
+            if (startIndex < 0 || startIndex == text.Length - 1)
+                return string.Empty;
+
+            startIndex += previousString.Length;
+
+            int endIndex = text.IndexOf(nextString, startIndex);
+            if (endIndex < 0)
+                return string.Empty;
+
+            var result = text.Substring(startIndex, endIndex - startIndex);
+            return result;
+        }
     }
 }
