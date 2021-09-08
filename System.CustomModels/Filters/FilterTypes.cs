@@ -27,4 +27,12 @@
         Director,
         Country
     }
+
+    public enum ListFilterType
+    {
+        Id,
+        Name,
+        UserName,
+        Type
+    }
 }
