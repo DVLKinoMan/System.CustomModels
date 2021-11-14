@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Authors>David Dvali</Authors>
+    <Product>SystemNET.CustomModels</Product>
+    <PackageId>SystemNET.CustomModels</PackageId>
+    <PackageProjectUrl>https://github.com/DVLKinoMan/System.CustomModels</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DVLKinoMan/System.CustomModels</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
