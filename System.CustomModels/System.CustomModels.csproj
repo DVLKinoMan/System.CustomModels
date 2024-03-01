@@ -1,13 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
+	  <Nullable>enable</Nullable>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>David Dvali</Authors>
+	  <Version>3.1.0</Version>
     <Product>SystemNET.CustomModels</Product>
     <PackageId>SystemNET.CustomModels</PackageId>
     <PackageProjectUrl>https://github.com/DVLKinoMan/System.CustomModels</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DVLKinoMan/System.CustomModels</RepositoryUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <PackageReleaseNotes>Upgrade to .NET 8.0</PackageReleaseNotes>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="license.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
