@@ -5,7 +5,7 @@ namespace System.CustomModels
 {
     public static class Helpers
     {
-        public static readonly Dictionary<ZodiacSign, IRange<(int month, int day)>> ZodiacDateRange = new()
+        public static readonly Dictionary<ZodiacSign, Range<(int month, int day)>> ZodiacDateRange = new()
         {
             [ZodiacSign.Aquarius] = new Range<(int month, int day)>((1, 20), (2, 18)),
             [ZodiacSign.Pisces] = new Range<(int month, int day)>((2, 19), (3, 20)),
@@ -48,5 +48,14 @@ namespace System.CustomModels
             Gender.Female => 2,
             _ => null
         };
+
+        public static void Accept(this IEnumerable<OrderBy> orderBy, ISelectVisitor visitor)
+        {
+            foreach(var o in orderBy)
+                o.Accept(visitor);
+        }
+
+        public static void Accept(this OrderBy orderBy, ISelectVisitor visitor) =>
+            visitor.Accept(orderBy.Value, orderBy.Asc);
     }
 }

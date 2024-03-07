@@ -2,16 +2,18 @@
 
 namespace System.CustomModels.Filters
 {
-    public abstract class Query
+    public class Query
     {
-        protected abstract IEnumerable<Filter> Filters { get; }
+        public List<Filter> Filters { get; set; } = [];
+
+        public List<OrderBy> OrderBy { get; set; } = [];
 
         //public SelectControlFlags? SelectControlFlags { get; set; }
 
         public int CurrentPage { get; set; } = 1;
 
         public int PageSize { get; set; } = 10;
-
-        //todo sorting
     }
+
+    public record OrderBy(string Value, bool Asc = true);
 }
