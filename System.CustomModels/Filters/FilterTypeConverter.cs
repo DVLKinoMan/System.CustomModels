@@ -25,10 +25,10 @@ namespace System.CustomModels.Filters
             return (jo["filterType"] ?? throw new InvalidOperationException($"Type has no filterType"))
                 .Value<int>() switch
                 {
-                    (int)FilterType.ExactValue => DeserilizeToTargetType(str, typeof(ExactValueFilter<>), options),
-                    (int)FilterType.PatternString => JsonSerializer.Deserialize<PatternString>(str, options),
-                    (int)FilterType.Range => DeserilizeToTargetType(str, typeof(Range<>), options),
-                    (int)FilterType.DatetimePattern => JsonSerializer.Deserialize<DatetimePattern>(str, options),
+                    (int)FilterType.ExactValue => DeserilizeToTargetType(str, typeof(ExactValueFilter<,>), options),
+                    (int)FilterType.PatternString => DeserilizeToTargetType(str, typeof(PatternString<>), options),
+                    (int)FilterType.Range => DeserilizeToTargetType(str, typeof(Range<,>), options),
+                    (int)FilterType.DatetimePattern => DeserilizeToTargetType(str, typeof(DatetimePattern<>), options),
                     _ => throw new NotImplementedException("filterType is not implemented")
                 };
         }

@@ -1,11 +1,11 @@
 ﻿namespace System.CustomModels.Filters
 {
-    public class DatetimePattern : Filter
+    public class DatetimePattern<T> : Filter<T> where T : class
     {
         public int? Year { get; set; }
         public int? Month { get; set; }
         public int? Day { get; set; }
 
-        public override void Accept(ISelectVisitor visitor) => visitor.Accept(this);
+        public override void Accept(ISelectVisitor<T> visitor) => visitor.Accept(this);
     }
 }

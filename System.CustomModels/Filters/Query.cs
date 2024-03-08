@@ -2,9 +2,9 @@
 
 namespace System.CustomModels.Filters
 {
-    public class Query
+    public class Query<T> where T : class
     {
-        public List<Filter> Filters { get; set; } = [];
+        public List<Filter<T>> Filters { get; set; } = [];
 
         public List<OrderBy> OrderBy { get; set; } = [];
 
