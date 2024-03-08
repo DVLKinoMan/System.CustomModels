@@ -26,8 +26,8 @@ namespace System.CustomModels
             int month = birthDay.Month;
             int day = birthDay.Day;
             foreach (var (sign, range) in ZodiacDateRange)
-                if ((range.Start.month == month && range.Start.day <= day) ||
-                    (range.End.month == month && range.End.day >= day))
+                if ((range.Start?.month == month && range.Start?.day <= day) ||
+                    (range.End?.month == month && range.End?.day >= day))
                     return sign;
 
             throw new ApplicationException("ZodiacDateRange does not contain this datetime");
