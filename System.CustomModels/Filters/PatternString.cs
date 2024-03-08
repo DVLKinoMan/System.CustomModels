@@ -5,6 +5,8 @@
         public string? Value { get; set; } = value;
         public string? Pattern { get; set; } = pattern;
 
+        public override FilterType FilterType => FilterType.PatternString;
+
         public override void Accept(ISelectVisitor<T> visitor) => visitor.Accept(this);
     }
 }

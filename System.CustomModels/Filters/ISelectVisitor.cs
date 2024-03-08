@@ -9,7 +9,7 @@ namespace System.CustomModels.Filters
         //void Accept(FilmSelectControlFlags selectControlFlags);
         //void Accept(FilmOrderBy orderBy, bool ascending = true);
         void Accept<TRes>(ExactValueFilter<T, TRes> filter);
-        void Accept<TRes>(Range<T, TRes> rangeFilter) where TRes : IComparable<TRes>;
+        void Accept<TRes>(Range<T, TRes> rangeFilter) where TRes : struct;
         void Accept(PatternString<T> patternString);
         void Accept(DatetimePattern<T> datetimePattern);
         void Accept(string orderBy, bool @ascending = true);
