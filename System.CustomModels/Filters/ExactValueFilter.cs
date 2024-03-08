@@ -1,8 +1,9 @@
 ﻿namespace System.CustomModels.Filters
 {
-    public class ExactValueFilter<T, TValue> : Filter<T> where T : class
+    public class ExactValueFilter<T, TValue>(string propPath, string? displayName = null) 
+        : Filter<T>(propPath, displayName) where T : class
     {
-        public TValue Value { get; set; }
+        public TValue? Value { get; set; }
 
         public override FilterType FilterType => FilterType.ExactValue;
         public override void Accept(ISelectVisitor<T> visitor) => visitor.Accept(this);
