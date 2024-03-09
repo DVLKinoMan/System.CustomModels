@@ -12,5 +12,8 @@ namespace System.CustomModels.Filters
         public FilterOperator FilterOperator { get; set; } = default;
 
         public abstract void Accept(ISelectVisitor<T> visitor);
+        public abstract void Reset();
+        public abstract override string ToString();
+        public abstract bool IsValid();
     }
 }

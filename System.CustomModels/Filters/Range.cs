@@ -19,5 +19,21 @@
 
         public override FilterType FilterType => FilterType.Range;
         public override void Accept(ISelectVisitor<T> visitor) => visitor.Accept(this);
+
+        public override bool IsValid() => Start != null || End != null;
+
+        public override void Reset()
+        {
+            Start = null;
+            End = null;
+        }
+
+        public override string ToString() =>
+            (Start == null
+            ? (IncludingEnds ? $"<= {End}" : $"< {End}")
+            : (End == null
+               ? (IncludingEnds ? $">= {Start}" : $"> {Start}")
+               : (IncludingEnds ? $">= {Start} && <= {End}" : $"> {Start} && < {End}"))
+            ) + (FilterOperator == FilterOperator.None ? "" : " " + FilterOperator.ToString());
     }
 }
