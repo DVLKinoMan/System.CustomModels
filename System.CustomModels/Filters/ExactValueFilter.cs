@@ -8,7 +8,7 @@
         public override FilterType FilterType => FilterType.ExactValue;
         public override void Accept(ISelectVisitor<T> visitor) => visitor.Accept(this);
 
-        public override bool IsValid() => Value != null;
+        public override bool IsValid => Value != null;
 
         public override void Reset()
         {

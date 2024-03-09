@@ -11,7 +11,7 @@
 
         public override void Accept(ISelectVisitor<T> visitor) => visitor.Accept(this);
 
-        public override bool IsValid() => Day != null || Year != null || Month != null;
+        public override bool IsValid => Day != null || Year != null || Month != null;
 
         public override void Reset()
         {

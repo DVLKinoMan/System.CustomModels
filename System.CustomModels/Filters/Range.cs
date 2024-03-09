@@ -20,7 +20,7 @@
         public override FilterType FilterType => FilterType.Range;
         public override void Accept(ISelectVisitor<T> visitor) => visitor.Accept(this);
 
-        public override bool IsValid() => Start != null || End != null;
+        public override bool IsValid => Start != null || End != null;
 
         public override void Reset()
         {
