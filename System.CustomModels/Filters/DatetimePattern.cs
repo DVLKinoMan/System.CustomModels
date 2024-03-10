@@ -11,7 +11,14 @@
 
         public override void Accept(ISelectVisitor<T> visitor) => visitor.Accept(this);
 
-        public override bool IsValid => Day != null || Year != null || Month != null;
+        public override bool IsValid => (Year, Month, Day) switch
+        {
+            (null, null, > 0 and <= 31) => true,
+            (null, > 0 and <= 12, null) => true,
+            ( > 0, null, null) => true,
+            (_, >= 1 and <= 12, > 0) when Day <= DateTime.DaysInMonth(Year ?? 2024, Month!.Value) => true,//2024 is leap year
+            _ => false
+        };
 
         public override void Reset()
         {
