@@ -18,8 +18,8 @@
             Pattern = null;
         }
 
-        public override string ToString() => (Value != null ? $"== {Value}"
-            : Pattern != null ? $"Contains({Pattern})" : string.Empty)
+        public override string ToString() => (!string.IsNullOrEmpty(Value) ? $"== {Value}"
+            : !string.IsNullOrEmpty(Pattern) ? $"Contains({Pattern})" : string.Empty)
             + (FilterOperator == FilterOperator.None ? "" : " " + FilterOperator.ToString());
     }
 }
