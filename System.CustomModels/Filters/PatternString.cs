@@ -12,7 +12,7 @@ namespace System.CustomModels.Filters
 
         public override void Accept(ISelectVisitor<T> visitor) => visitor.Accept(this);
 
-        public override bool IsValid => Value != null || Pattern != null;
+        public override bool IsValid => !string.IsNullOrEmpty(Value) || !string.IsNullOrEmpty(Pattern);
 
         public override void Reset()
         {
