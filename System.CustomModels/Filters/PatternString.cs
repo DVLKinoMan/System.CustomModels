@@ -20,9 +20,10 @@ namespace System.CustomModels.Filters
             Pattern = null;
         }
 
-        public override string ToString() => (!string.IsNullOrEmpty(Value) ? $"== {Value}"
-            : !string.IsNullOrEmpty(Pattern) ? $"Contains({Pattern})" : string.Empty)
-            + (FilterOperator == FilterOperator.None ? "" : " " + FilterOperator.ToString());
+        public override string ToString() => 
+            BaseToString() + 
+            (!string.IsNullOrEmpty(Value) ? $"{DisplayName} == {Value}"
+            : !string.IsNullOrEmpty(Pattern) ? $"{DisplayName}.Contains({Pattern})" : string.Empty);
 
         public override Filter<T> Clone() =>
              new PatternString<T>(PropertyPath, DisplayName, Value, Pattern)

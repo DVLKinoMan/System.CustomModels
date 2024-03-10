@@ -15,7 +15,7 @@
             Value = default;
         }
 
-        public override string ToString() => $"== {Value}" + (FilterOperator == FilterOperator.None ? "" : " " + FilterOperator.ToString());
+        public override string ToString() => $"{BaseToString()}{DisplayName} == {Value}";
 
         public override Filter<T> Clone() =>
             new ExactValueFilter<T, TValue>(PropertyPath, DisplayName) {

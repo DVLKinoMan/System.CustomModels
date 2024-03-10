@@ -8,12 +8,13 @@ namespace System.CustomModels.Filters
         private string? _displayName = displayName;
         public abstract FilterType FilterType { get; }
         public string PropertyPath { get; set; } = propPath;
-        public string? DisplayName { get => _displayName ?? PropertyPath.Split('.')[^1]; private set => _displayName = value; }
+        public string DisplayName { get => _displayName ?? PropertyPath.Split('.')[^1]; private set => _displayName = value; }
         public FilterOperator FilterOperator { get; set; } = default;
 
         public abstract void Accept(ISelectVisitor<T> visitor);
         public abstract void Reset();
         public abstract override string ToString();
+        protected string BaseToString() => FilterOperator == FilterOperator.None ? "" : $" { FilterOperator } ";
         public abstract Filter<T> Clone();
 
         public abstract bool IsValid { get; }

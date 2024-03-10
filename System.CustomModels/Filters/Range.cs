@@ -31,12 +31,13 @@ namespace System.CustomModels.Filters
         }
 
         public override string ToString() =>
+            BaseToString() +
             (Start == null
-            ? (IncludingEnds ? $"<= {End}" : $"< {End}")
+            ? (IncludingEnds ? $"{DisplayName} <= {End}" : $"< {End}")
             : (End == null
-               ? (IncludingEnds ? $">= {Start}" : $"> {Start}")
-               : (IncludingEnds ? $">= {Start} && <= {End}" : $"> {Start} && < {End}"))
-            ) + (FilterOperator == FilterOperator.None ? "" : " " + FilterOperator.ToString());
+               ? (IncludingEnds ? $"{DisplayName} >= {Start}" : $"{DisplayName} > {Start}")
+               : (IncludingEnds ? $"{Start} <= {DisplayName} <= {End}" : $"{Start} < {DisplayName} < {End}"))
+            );
 
         public override Filter<T> Clone() =>
              new Range<T, TValue>(PropertyPath, DisplayName, Start, End, IncludingEnds)

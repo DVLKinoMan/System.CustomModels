@@ -21,10 +21,9 @@
         }
 
         public override string ToString() =>
-            $"{(Year != null ? $"Year: {Year}" : "") +
-            (Month != null ? $"Month: {Month}" : "") +
-                (Day != null ? $"Day: {Day}" : "")}"
-            + (FilterOperator == FilterOperator.None ? "" : " " + FilterOperator.ToString());
+            $"{BaseToString()}{(Year != null ? $"{DisplayName}.Year: {Year}" : "") +
+            (Month != null ? $"{DisplayName}.Month: {Month}" : "") +
+                (Day != null ? $"{DisplayName}.Day: {Day}" : "")}";
 
         public override Filter<T> Clone() => 
             new DatetimePattern<T>(PropertyPath, DisplayName) {
