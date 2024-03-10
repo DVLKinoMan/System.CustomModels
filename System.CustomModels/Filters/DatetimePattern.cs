@@ -25,5 +25,13 @@
             (Month != null ? $"Month: {Month}" : "") +
                 (Day != null ? $"Day: {Day}" : "")}"
             + (FilterOperator == FilterOperator.None ? "" : " " + FilterOperator.ToString());
+
+        public override Filter<T> Clone() => 
+            new DatetimePattern<T>(PropertyPath, DisplayName) {
+                Day = Day, 
+                Year = Year, 
+                Month = Month, 
+                FilterOperator = FilterOperator
+            };
     }
 }

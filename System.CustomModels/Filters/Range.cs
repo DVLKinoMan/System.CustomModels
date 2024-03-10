@@ -1,4 +1,6 @@
-﻿namespace System.CustomModels.Filters
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace System.CustomModels.Filters
 {
     public class Range<TValue>(TValue? st = null, TValue? end = null, bool includingEnds = true) 
         where TValue : struct
@@ -35,5 +37,11 @@
                ? (IncludingEnds ? $">= {Start}" : $"> {Start}")
                : (IncludingEnds ? $">= {Start} && <= {End}" : $"> {Start} && < {End}"))
             ) + (FilterOperator == FilterOperator.None ? "" : " " + FilterOperator.ToString());
+
+        public override Filter<T> Clone() =>
+             new Range<T, TValue>(PropertyPath, DisplayName, Start, End, IncludingEnds)
+             {
+                 FilterOperator = FilterOperator
+             };
     }
 }

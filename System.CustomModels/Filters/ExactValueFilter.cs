@@ -16,5 +16,11 @@
         }
 
         public override string ToString() => $"== {Value}" + (FilterOperator == FilterOperator.None ? "" : " " + FilterOperator.ToString());
+
+        public override Filter<T> Clone() =>
+            new ExactValueFilter<T, TValue>(PropertyPath, DisplayName) {
+                Value = Value,
+                FilterOperator = FilterOperator
+            };
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace System.CustomModels.Filters
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace System.CustomModels.Filters
 {
     public class PatternString<T>(string propPath, string? displayName = null, string? value = null, string? pattern = null)
         : Filter<T>(propPath, displayName) where T : class
@@ -21,5 +23,11 @@
         public override string ToString() => (!string.IsNullOrEmpty(Value) ? $"== {Value}"
             : !string.IsNullOrEmpty(Pattern) ? $"Contains({Pattern})" : string.Empty)
             + (FilterOperator == FilterOperator.None ? "" : " " + FilterOperator.ToString());
+
+        public override Filter<T> Clone() =>
+             new PatternString<T>(PropertyPath, DisplayName, Value, Pattern)
+             {
+                 FilterOperator = FilterOperator
+             };
     }
 }

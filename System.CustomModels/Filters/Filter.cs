@@ -14,6 +14,8 @@ namespace System.CustomModels.Filters
         public abstract void Accept(ISelectVisitor<T> visitor);
         public abstract void Reset();
         public abstract override string ToString();
+        public abstract Filter<T> Clone();
+
         public abstract bool IsValid { get; }
     }
 }
