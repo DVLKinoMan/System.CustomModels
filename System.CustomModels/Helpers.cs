@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.CustomModels.Filters;
 
 namespace System.CustomModels
 {
@@ -48,14 +47,5 @@ namespace System.CustomModels
             Gender.Female => 2,
             _ => null
         };
-
-        public static void Accept<T>(this IEnumerable<OrderBy> orderBy, ISelectVisitor<T> visitor) where T : class
-        {
-            foreach(var o in orderBy)
-                o.Accept(visitor);
-        }
-
-        public static void Accept<T>(this OrderBy orderBy, ISelectVisitor<T> visitor) where T : class =>
-            visitor.Accept(orderBy.Value, orderBy.Asc);
     }
 }
