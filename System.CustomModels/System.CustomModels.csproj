@@ -5,18 +5,19 @@
 	  <Nullable>enable</Nullable>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>David Dvali</Authors>
-	  <Version>3.1.0</Version>
+	  <Version>3.2.0</Version>
     <Product>SystemNET.CustomModels</Product>
     <PackageId>SystemNET.CustomModels</PackageId>
     <PackageProjectUrl>https://github.com/DVLKinoMan/System.CustomModels</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DVLKinoMan/System.CustomModels</RepositoryUrl>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
-    <PackageReleaseNotes>Upgrade to .NET 8.0</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <AssemblyVersion>3.2.0</AssemblyVersion>
+    <FileVersion>3.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>

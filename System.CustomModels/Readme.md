@@ -6,7 +6,7 @@ System.CustomModels is easy-to-use library for custom models like gender, range,
 Installation
 You can install System.CustomModels via NuGet package manager:
 
-NuGet\Install-Package SystemNET.CustomModels -Version 3.1.0
+NuGet\Install-Package SystemNET.CustomModels -Version 3.2.0
 
 Contributing
 Contributions are welcome! 
